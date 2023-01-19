@@ -28,30 +28,47 @@
                 if($email){
                     $results = get_clients($email);
                     include('view/modifier.php');
+                }else{
+                    $messageErreur = "le courrriel ".$email." n'existe pas ";
+                    include('MessageErreur.php');
                 }
                 break;
             case 'enregistrer':
                 if($nom && $prenom && $email && $password){
                     $count = enregistrer_client($nom,$prenom,$email,$password);
-                    header("Location :?action=enregistrer&email={$email}&created={$count}");
+                    header("Location: index.php?action=enregistrer&email={$email}&created={$count}");
                     include('view/enregistrer.php');
+                }
+                if(!$email){
+                    $messageErreur = "le courrriel ".$email." n'existe pas ".$nom.$prenom.$email.$password;
+                    include('view/MessageErreur.php');
                 }else{
-                    
+                    include('view/enregistrer.php');
+
                 }
                 break;
             case 'modifier':
                 if($id && $nom && $prenom && $email && $password){
-                    $msg = modifier_client($id,$nom,$prenom,$email,$password);
-                    header("Location :?action=modifier&email={$email}&updated={$msg}");
+                    $count = modifier_client($id,$nom,$prenom,$email,$password);
+                    header("Location: index.php?action=modifier&email={$email}&updated={$count}");
                 }
-                include('view/modifier.php');
+                if(!$email){
+                    $messageErreur = "le courrriel ".$email." n'existe pas ".$nom.$prenom.$email.$password;
+                    include('view/MessageErreur.php');
+                }else{
+                    include('view/modifier.php');
+
+                }
                 break;
             case 'suprimer':
                 if($id){
-                    $msg = suprimer_client($id);
-                    header("Location :?action=modifier&email={$email}&deleted={$msg}");
+                    $count = suprimer_client($id);
+                    header("Location: index.php?action=modifier&email={$email}&deleted={$count}");
+                    include('view/modifier.php');
+                }else{
+                    $messageErreur = "le courrriel ".$email." n'existe pas ";
+                    include('view/MessageErreur.php');
                 }
-                include('view/modifier.php');
                 break;
             default:
                 include('view/enregistrer.php');

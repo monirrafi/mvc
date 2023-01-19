@@ -4,14 +4,16 @@
        $deleted = filter_input(INPUT_GET,'deleted', FILTER_SANITIZE_STRING);
 
        if($created){
-            echo "enr";        
-       }
+          $nom = filter_input(INPUT_GET,'nom', FILTER_SANITIZE_STRING);
+          $prenom = filter_input(INPUT_GET,'prenom', FILTER_SANITIZE_STRING);
+            echo "le client".$nom." ".$prenom." a ete ajoute avec succes" ;        
+     }
        if($updated){
-            echo "mod";        
+            echo "les donnes  du client ".$nom." ".$prenom." ont ete modifie avec succes" ;        
        }
        if($deleted){
-            echo "sup";        
-       }
+          echo "le client ".$nom." ".$prenom." a ete suprime avec succes" ;        
+     }
 
 
 ?>
