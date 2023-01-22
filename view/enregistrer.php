@@ -53,5 +53,6 @@
     </section>
     </main>
 <br>
+
 <?php include('status.php') ?>
 <?php include('Enpieds.php') ?>

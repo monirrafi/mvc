@@ -11,7 +11,7 @@
     <script src="view/utilitaires/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
     <script src="view/js/global.js"></script>
 </head>
-<body>
+<body onLoad="initialiser(<?php echo "'".$msg."'" ?>);">
     <center>
     <main>
 

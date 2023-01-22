@@ -9,7 +9,7 @@
             echo "le client".$nom." ".$prenom." a ete ajoute avec succes" ;        
      }
        if($updated){
-            echo "les donnes  du client ".$nom." ".$prenom." ont ete modifie avec succes" ;        
+         echo "le client".$nom." ".$prenom." a ete modifie avec succes" ;         
        }
        if($deleted){
           echo "le client ".$nom." ".$prenom." a ete suprime avec succes" ;        
